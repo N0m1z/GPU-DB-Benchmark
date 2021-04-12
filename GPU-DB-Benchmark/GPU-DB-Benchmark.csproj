@@ -6,4 +6,8 @@
         <RootNamespace>GPU_DB_Benchmark</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Bogus" Version="33.0.2" />
+    </ItemGroup>
+
 </Project>

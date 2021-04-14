@@ -8,9 +8,8 @@ namespace GPU_DB_Benchmark.DataGeneration
 {
     public class CsvCreator
     {
-        public static void WriteCsv(string path)
+        public static void WriteCsv(string path, List<Company> companies)
         {
-            var companies = DataGenerator.GenerateData(1000);
             var addresses = new List<Address>();
             companies.ForEach(c => addresses.Add(c.Address));
             var departments = new List<Department>();
@@ -25,39 +24,46 @@ namespace GPU_DB_Benchmark.DataGeneration
             using var writer = new StreamWriter("Companies.csv");
             {
                 using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-                //csv.Context.RegisterClassMap<CsvCompanyMap>();
                 csv.WriteRecords(companies);
             }
             
-            using var writer2 = new StreamWriter(Path.Combine("Addresses.csv"));
+            using var writer2 = new StreamWriter("Addresses.csv");
             {
                 using var csv = new CsvWriter(writer2, CultureInfo.InvariantCulture);
                 csv.WriteRecords(addresses);
             }
             
-            using var writer3 = new StreamWriter(Path.Combine("Departments.csv"));
+            using var writer3 = new StreamWriter("Departments.csv");
             {
                 using var csv = new CsvWriter(writer3, CultureInfo.InvariantCulture);
                 csv.WriteRecords(departments);
             }
             
-            using var writer4 = new StreamWriter(Path.Combine("Categories.csv"));
+            using var writer4 = new StreamWriter("Categories.csv");
             {
                 using var csv = new CsvWriter(writer4, CultureInfo.InvariantCulture);
                 csv.WriteRecords(categories);
             }
             
-            using var writer5 = new StreamWriter(Path.Combine("Products.csv"));
+            using var writer5 = new StreamWriter("Products.csv");
             {
                 using var csv = new CsvWriter(writer5, CultureInfo.InvariantCulture);
                 csv.WriteRecords(products);
             }
             
-            using var writer6 = new StreamWriter(Path.Combine("Reviews.csv"));
+            using var writer6 = new StreamWriter("Reviews.csv");
             {
                 using var csv = new CsvWriter(writer6, CultureInfo.InvariantCulture);
                 csv.WriteRecords(reviews);
             }
+
+            // Move to upper case file names
+            File.Move("addresses.csv", "Addresses.csv");
+            File.Move("companies.csv", "Companies.csv");
+            File.Move("departments.csv", "Departments.csv");
+            File.Move("categories.csv", "Categories.csv");
+            File.Move("products.csv", "Products.csv");
+            File.Move("reviews.csv", "Reviews.csv");
         }
     }
 }

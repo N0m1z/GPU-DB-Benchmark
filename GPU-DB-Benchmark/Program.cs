@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using GPU_DB_Benchmark.DataAccess;
+using GPU_DB_Benchmark.DataGeneration;
+using GPU_DB_Benchmark.Models;
 
 namespace GPU_DB_Benchmark
 {
@@ -6,7 +10,7 @@ namespace GPU_DB_Benchmark
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CsvCreator.WriteCsv("CsvFiles");
         }
     }
 }

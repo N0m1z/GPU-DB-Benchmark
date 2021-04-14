@@ -1,4 +1,6 @@
-﻿namespace GPU_DB_Benchmark.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GPU_DB_Benchmark.Models
 {
     public class Address
     {
@@ -10,5 +12,7 @@
         public string SecondaryAddress { get; set; }
         public string CountryCode { get; set; }
         public string Country { get; set; }
+        [ForeignKey("CompanyId")]
+        public int CompanyId { get; set; }
     }
 }

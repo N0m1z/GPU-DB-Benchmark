@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GPU_DB_Benchmark.Models
 {
@@ -11,7 +12,10 @@ namespace GPU_DB_Benchmark.Models
         public string Material { get; set; }
         public string Ean13 { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public double Price { get; set; }
+        public string Price { get; set; }
+        [NotMapped]
         public List<Review> Reviews { get; set; }
+        [ForeignKey("CategoryId")]
+        public int CategoryId { get; set; }
     }
 }

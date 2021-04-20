@@ -13,9 +13,7 @@ namespace GPU_DB_Benchmark.Models
         public string Ean13 { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Price { get; set; }
-        [NotMapped]
         public List<Review> Reviews { get; set; }
-        [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
     }
 }

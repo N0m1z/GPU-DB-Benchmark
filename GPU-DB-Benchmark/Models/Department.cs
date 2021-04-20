@@ -7,9 +7,7 @@ namespace GPU_DB_Benchmark.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        [NotMapped]
         public List<Category> Categories { get; set; }
-        [ForeignKey("CompanyId")]
         public int CompanyId { get; set; }
     }
 }

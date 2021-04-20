@@ -8,7 +8,7 @@ namespace GPU_DB_Benchmark.DataGeneration
 {
     public class CsvCreator
     {
-        public static void WriteCsv(string path, List<Company> companies)
+        public static void WriteCsv(List<Company> companies)
         {
             var addresses = new List<Address>();
             companies.ForEach(c => addresses.Add(c.Address));

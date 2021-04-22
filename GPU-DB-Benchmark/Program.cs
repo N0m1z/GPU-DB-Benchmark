@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using BenchmarkDotNet.Reports;
+using BenchmarkDotNet.Running;
 using CsvHelper.Configuration.Attributes;
+using GPU_DB_Benchmark.Benchmark;
 using GPU_DB_Benchmark.DataGeneration;
 using GPU_DB_Benchmark.Models;
 
@@ -45,7 +48,7 @@ namespace GPU_DB_Benchmark
 
         private static void Benchmark()
         {
-            
+            BenchmarkRunner.Run<Benchmarker>();
         }
     }
 }

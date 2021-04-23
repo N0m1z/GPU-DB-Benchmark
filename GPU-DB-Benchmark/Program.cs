@@ -28,7 +28,7 @@ namespace GPU_DB_Benchmark
                     if (!suc)
                         goto default;
                     
-                    Genrate(factor);
+                    Generate(factor);
                     break;
                 case "benchmark":
                     Benchmark();
@@ -39,11 +39,10 @@ namespace GPU_DB_Benchmark
             }
         }
 
-        private static void Genrate(int factor)
+        private static void Generate(int factor)
         {
-            var companies = DataGenerator.GenerateData(factor);
-            
-            CsvCreator.WriteCsv(companies);
+            Console.WriteLine("Generating Data");
+            DataGenerator.GenerateData(factor);
         }
 
         private static void Benchmark()

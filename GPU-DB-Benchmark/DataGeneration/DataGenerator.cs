@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using Bogus;
 using Bogus.Extensions;
+using CsvHelper;
 using GPU_DB_Benchmark.Models;
 
 namespace GPU_DB_Benchmark.DataGeneration
 {
     public class DataGenerator
     {
-        public static List<Company> GenerateData(int count)
+        public static void GenerateData(int count)
         {
             Randomizer.Seed = new Random(101010);
             var random = new Random(101010);
@@ -85,8 +88,42 @@ namespace GPU_DB_Benchmark.DataGeneration
                     departmentFaker.RuleFor(x => x.CompanyId, _ => b.Id);
                     return departmentFaker.GenerateBetween(1, 5);
                 });
-
-            return companyFaker.Generate(count);
+            
+            var companies = companyFaker.GenerateForever();
+            using (var writer = new StreamWriter("Companies.csv"))
+            using (var writer2 = new StreamWriter("Addresses.csv"))
+            using (var writer3 = new StreamWriter("Departments.csv"))
+            using (var writer4 = new StreamWriter("Categories.csv"))
+            using (var writer5 = new StreamWriter("Products.csv"))
+            using (var writer6 = new StreamWriter("Reviews.csv"))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            using (var csv2 = new CsvWriter(writer2, CultureInfo.InvariantCulture))
+            using (var csv3 = new CsvWriter(writer3, CultureInfo.InvariantCulture))
+            using (var csv4 = new CsvWriter(writer4, CultureInfo.InvariantCulture))
+            using (var csv5 = new CsvWriter(writer5, CultureInfo.InvariantCulture))
+            using (var csv6= new CsvWriter(writer6, CultureInfo.InvariantCulture))
+                
+                foreach (var company in companies)
+                {
+                    var categories = new List<Category>();
+                    company.Departments.ForEach(d => categories.AddRange(d.Categories));
+                    var products = new List<Product>();
+                    categories.ForEach(c => products.AddRange(c.Products));
+                    var reviews = new List<Review>();
+                    products.ForEach(p => reviews.AddRange(p.Reviews));
+                    
+                    csv.WriteRecord(company);
+                    csv2.WriteRecord(company.Address);
+                    csv3.WriteRecords(company.Departments);
+                    csv4.WriteRecords(categories);
+                    csv5.WriteRecords(products);
+                    csv6.WriteRecords(reviews);
+                    
+                    if (company.Id == count)
+                    {
+                        break;
+                    }
+                }
         }
     }
 }

@@ -1,5 +1,3 @@
--- noinspection SqlNoDataSourceInspectionForFile
-
 CREATE TABLE IF NOT EXISTS addresses (
 id BIGINT NOT NULL,
 zipcode TEXT,

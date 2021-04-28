@@ -22,7 +22,7 @@ namespace GPU_DB_Benchmark.DataGeneration
                 .RuleFor(x => x.Id, _ => reviewId++)
                 .RuleFor(x => x.Author, x => x.Name.FullName())
                 .RuleFor(x => x.ReviewText, x => x.Rant.Review())
-                .RuleFor(x => x.PublishDate, x => x.Date.Past());
+                .RuleFor(x => x.PublishDate, x => x.Date.Past(10));
 
             var productId = 1;
             var productFaker = new Faker<Product>()
@@ -31,8 +31,8 @@ namespace GPU_DB_Benchmark.DataGeneration
                 .RuleFor(x => x.Color, x => x.Commerce.Color())
                 .RuleFor(x => x.Material, x => x.Commerce.ProductMaterial())
                 .RuleFor(x => x.Ean13, x => x.Commerce.Ean13())
-                .RuleFor(x => x.ReleaseDate, x => x.Date.Past())
-                .RuleFor(x => x.Price, x => x.Commerce.Price())
+                .RuleFor(x => x.ReleaseDate, x => x.Date.Past(50))
+                .RuleFor(x => x.Price, x => double.Parse(x.Commerce.Price()))
                 .RuleFor(x => x.Reviews, (f, b) =>
                 {
                     reviewFaker.RuleFor(x => x.ProductId, _ => b.Id);
@@ -81,7 +81,7 @@ namespace GPU_DB_Benchmark.DataGeneration
                 })
                 .RuleFor(x => x.Email, x => x.Internet.Email())
                 .RuleFor(x => x.Website, x => x.Internet.DomainName())
-                .RuleFor(x => x.FoundingDate, x => x.Date.Past())
+                .RuleFor(x => x.FoundingDate, x => x.Date.Past(100))
                 .RuleFor(x => x.PhoneNumber, x => x.Phone.PhoneNumber())
                 .RuleFor(x => x.Departments, (f, b) =>
                 {

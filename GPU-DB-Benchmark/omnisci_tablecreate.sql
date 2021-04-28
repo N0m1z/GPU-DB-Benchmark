@@ -34,7 +34,7 @@ color TEXT,
 material TEXT,
 ean13 TEXT,
 releasedate TEXT,
-price TEXT,
+price DOUBLE,
 categoryid BIGINT);
 
 CREATE TABLE IF NOT EXISTS reviews (

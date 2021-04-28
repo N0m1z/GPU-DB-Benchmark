@@ -12,7 +12,7 @@ namespace GPU_DB_Benchmark.Models
         public string Material { get; set; }
         public string Ean13 { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public List<Review> Reviews { get; set; }
         public int CategoryId { get; set; }
     }

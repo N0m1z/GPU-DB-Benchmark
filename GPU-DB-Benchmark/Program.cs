@@ -47,7 +47,7 @@ namespace GPU_DB_Benchmark
 
         private static void Benchmark()
         {
-            BenchmarkRunner.Run<Benchmarker>();
+            BenchmarkRunner.Run<OmniSciBenchmark>();
         }
     }
 }

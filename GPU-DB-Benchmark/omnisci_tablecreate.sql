@@ -17,7 +17,7 @@ departmentid BIGINT);
 CREATE TABLE IF NOT EXISTS companies (
 id BIGINT NOT NULL,
 name TEXT,
-foundingdate TEXT,
+foundingdate DATE,
 email TEXT,
 website TEXT,
 phonenumber TEXT);
@@ -33,7 +33,7 @@ name TEXT,
 color TEXT,
 material TEXT,
 ean13 TEXT,
-releasedate TEXT,
+releasedate DATE,
 price DOUBLE,
 categoryid BIGINT);
 
@@ -41,5 +41,5 @@ CREATE TABLE IF NOT EXISTS reviews (
 id BIGINT NOT NULL,
 author TEXT,
 reviewtext TEXT,
-publishdate TEXT,
+publishdate DATE,
 productid BIGINT);

@@ -35,7 +35,7 @@ namespace GPU_DB_Benchmark.Benchmark
             ExecuteQuery(queryString);
         }
 
-        private string ReadQueryString(string queryNumber)
+        public string ReadQueryString(string queryNumber)
         {
             var proc = new Process
             {
@@ -52,7 +52,7 @@ namespace GPU_DB_Benchmark.Benchmark
             return queryString;
         }
 
-        private void ExecuteQuery(string queryString)
+        public void ExecuteQuery(string queryString)
         {
             var omni = new Process
             {

@@ -113,7 +113,9 @@ namespace GPU_DB_Benchmark.DataGeneration
                     products.ForEach(p => reviews.AddRange(p.Reviews));
                     
                     csv.WriteRecord(company);
+                    csv.NextRecord();
                     csv2.WriteRecord(company.Address);
+                    csv.NextRecord();
                     csv3.WriteRecords(company.Departments);
                     csv4.WriteRecords(categories);
                     csv5.WriteRecords(products);

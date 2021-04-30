@@ -101,7 +101,12 @@ namespace GPU_DB_Benchmark.DataGeneration
             using (var csv3 = new CsvWriter(writer3, CultureInfo.InvariantCulture))
             using (var csv4 = new CsvWriter(writer4, CultureInfo.InvariantCulture))
             using (var csv5 = new CsvWriter(writer5, CultureInfo.InvariantCulture))
-            using (var csv6= new CsvWriter(writer6, CultureInfo.InvariantCulture))
+            using (var csv6 = new CsvWriter(writer6, CultureInfo.InvariantCulture))
+            {
+                csv.WriteHeader<Company>();
+                csv.NextRecord();
+                csv2.WriteHeader<Address>();
+                csv2.NextRecord();
                 
                 foreach (var company in companies)
                 {
@@ -111,7 +116,7 @@ namespace GPU_DB_Benchmark.DataGeneration
                     categories.ForEach(c => products.AddRange(c.Products));
                     var reviews = new List<Review>();
                     products.ForEach(p => reviews.AddRange(p.Reviews));
-                    
+
                     csv.WriteRecord(company);
                     csv.NextRecord();
                     csv2.WriteRecord(company.Address);
@@ -120,12 +125,13 @@ namespace GPU_DB_Benchmark.DataGeneration
                     csv4.WriteRecords(categories);
                     csv5.WriteRecords(products);
                     csv6.WriteRecords(reviews);
-                    
+
                     if (company.Id == count)
                     {
                         break;
                     }
                 }
+            }
         }
     }
 }

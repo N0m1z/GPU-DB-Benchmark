@@ -28,7 +28,7 @@ namespace GPU_DB_Benchmark
                     if (!suc)
                         goto default;
                     
-                    Generate(factor);
+                    Generate(factor * 2000);
                     break;
                 case "benchmark":
                     Benchmark();

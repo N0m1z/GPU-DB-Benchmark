@@ -2,10 +2,7 @@
 {
     public interface IQueryExecutor
     {
-        public void ExecuteQuery1();
-        public void ExecuteQuery2();
-        public void ExecuteQuery3();
-        public void ExecuteQuery4();
-        public void ExecuteQuery5();
+        public string ReadQueryString(string queryNumber);
+        public void ExecuteQuery(string queryString);
     }
 }

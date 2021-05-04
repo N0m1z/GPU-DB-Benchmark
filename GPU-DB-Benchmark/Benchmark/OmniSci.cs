@@ -5,36 +5,6 @@ namespace GPU_DB_Benchmark.Benchmark
 {
     public class OmniSci : IQueryExecutor
     {
-        public void ExecuteQuery1()
-        {
-            var queryString = ReadQueryString("1");
-            ExecuteQuery(queryString);
-        }
-
-        public void ExecuteQuery2()
-        {
-            var queryString = ReadQueryString("2");
-            ExecuteQuery(queryString);
-        }
-
-        public void ExecuteQuery3()
-        {
-            var queryString = ReadQueryString("3");
-            ExecuteQuery(queryString);
-        }
-
-        public void ExecuteQuery4()
-        {
-            var queryString = ReadQueryString("4");
-            ExecuteQuery(queryString);
-        }
-
-        public void ExecuteQuery5()
-        {
-            var queryString = ReadQueryString("5");
-            ExecuteQuery(queryString);
-        }
-
         public string ReadQueryString(string queryNumber)
         {
             var proc = new Process

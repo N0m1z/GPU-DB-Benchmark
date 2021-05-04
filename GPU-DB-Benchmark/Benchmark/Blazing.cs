@@ -1,37 +1,29 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace GPU_DB_Benchmark.Benchmark
 {
     public class Blazing : IQueryExecutor
     {
-        public void ExecuteQueries()
+        public string ReadQueryString(string queryNumber)
         {
-            throw new NotImplementedException();
+            var proc = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cat",
+                    Arguments = $"/home/nomis/GPU-DB-Benchmark/GPU-DB-Benchmark/Queries/OmniSci/Query{queryNumber}.sql",
+                    RedirectStandardOutput = true
+                }
+            };
+
+            proc.Start();
+            var queryString = proc.StandardOutput.ReadToEnd();
+            return queryString;
         }
 
-        public void ExecuteQuery1()
+        public void ExecuteQuery(string queryString)
         {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery2()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery3()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery4()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery5()
-        {
-            throw new NotImplementedException();
         }
     }
 }

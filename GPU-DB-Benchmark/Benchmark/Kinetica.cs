@@ -4,32 +4,12 @@ namespace GPU_DB_Benchmark.Benchmark
 {
     public class Kinetica : IQueryExecutor
     {
-        public void ExecuteQueries()
+        public string ReadQueryString(string queryNumber)
         {
             throw new NotImplementedException();
         }
 
-        public void ExecuteQuery1()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery2()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery3()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery4()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteQuery5()
+        public void ExecuteQuery(string queryString)
         {
             throw new NotImplementedException();
         }

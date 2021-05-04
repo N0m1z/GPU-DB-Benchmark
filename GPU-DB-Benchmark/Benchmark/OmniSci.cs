@@ -41,7 +41,6 @@ namespace GPU_DB_Benchmark.Benchmark
             omni.WaitForExit();
         }
         
-        [IterationSetup]
         public void ClearMemory()
         {
             var omni = new Process

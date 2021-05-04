@@ -13,6 +13,9 @@ namespace GPU_DB_Benchmark.Benchmark
             _queryString1 = _omniSci.ReadQueryString("2");
         }
         
+        [IterationSetup]
+        public void ClearMemory() => _omniSci.ClearMemory();
+        
         [Benchmark]
         public void OmniSci2() => _omniSci.ExecuteQuery(_queryString1);
     }

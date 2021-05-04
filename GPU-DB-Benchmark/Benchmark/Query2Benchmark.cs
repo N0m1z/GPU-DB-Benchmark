@@ -14,6 +14,6 @@ namespace GPU_DB_Benchmark.Benchmark
         }
         
         [Benchmark]
-        public void OmniSci1() => _omniSci.ExecuteQuery(_queryString1);
+        public void OmniSci2() => _omniSci.ExecuteQuery(_queryString1);
     }
 }

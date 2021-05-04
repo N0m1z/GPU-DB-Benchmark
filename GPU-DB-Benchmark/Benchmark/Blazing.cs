@@ -1,29 +1,45 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace GPU_DB_Benchmark.Benchmark
 {
     public class Blazing : IQueryExecutor
     {
-        public string ReadQueryString(string queryNumber)
+        public void ExecuteQuery(string queryString)
         {
-            var proc = new Process
+            var workingDirectory = Directory.GetCurrentDirectory();
+            var process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = "cat",
-                    Arguments = $"/home/nomis/GPU-DB-Benchmark/GPU-DB-Benchmark/Queries/OmniSci/Query{queryNumber}.sql",
-                    RedirectStandardOutput = true
+                    FileName = "bash",
+                    RedirectStandardInput = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = false,
+                    WorkingDirectory = workingDirectory,
                 }
             };
-
-            proc.Start();
-            var queryString = proc.StandardOutput.ReadToEnd();
-            return queryString;
-        }
-
-        public void ExecuteQuery(string queryString)
-        {
+            
+            process.Start();
+            using (var sw = process.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd Queries/BlazingSQL");
+                    sw.WriteLine($"source /home/nomis/miniconda3/bin/activate");
+                    sw.WriteLine($"/home/nomis/miniconda3/bin/python {workingDirectory}/Queries/BlazingSQL/Query{queryString}.py");
+                }
+            }
+            
+            while (!process.StandardOutput.EndOfStream)
+            {
+                var line = process.StandardOutput.ReadLine();
+                Console.WriteLine(line);
+            }
+            
+            process.WaitForExit();
         }
     }
 }

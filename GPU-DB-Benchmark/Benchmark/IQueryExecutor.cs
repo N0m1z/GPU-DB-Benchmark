@@ -2,7 +2,6 @@
 {
     public interface IQueryExecutor
     {
-        public string ReadQueryString(string queryNumber);
         public void ExecuteQuery(string queryString);
     }
 }

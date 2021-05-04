@@ -7,6 +7,7 @@ namespace GPU_DB_Benchmark.Benchmark
     {
         private readonly OmniSci _omniSci = new();
         private readonly string _queryString1;
+        private readonly Blazing _blazing = new();
         
         public Query3Benchmark()
         {
@@ -18,5 +19,8 @@ namespace GPU_DB_Benchmark.Benchmark
         
         [Benchmark]
         public void OmniSci3() => _omniSci.ExecuteQuery(_queryString1);
+        
+        [Benchmark]
+        public void Blazing1() => _blazing.ExecuteQuery("3");
     }
 }

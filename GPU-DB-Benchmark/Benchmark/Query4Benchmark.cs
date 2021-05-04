@@ -17,10 +17,10 @@ namespace GPU_DB_Benchmark.Benchmark
         [IterationSetup]
         public void ClearMemory() => _omniSci.ClearMemory();
         
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         public void OmniSci4() => _omniSci.ExecuteQuery(_queryString1);
         
         [Benchmark]
-        public void Blazing1() => _blazing.ExecuteQuery("4");
+        public void Blazing4() => _blazing.ExecuteQuery("4");
     }
 }

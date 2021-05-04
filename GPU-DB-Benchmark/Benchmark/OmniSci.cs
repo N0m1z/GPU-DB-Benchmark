@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using BenchmarkDotNet.Attributes;
 
 namespace GPU_DB_Benchmark.Benchmark
 {
@@ -36,6 +37,26 @@ namespace GPU_DB_Benchmark.Benchmark
 
             omni.Start();
             omni.StandardInput.Write(queryString);
+            omni.StandardInput.Close();
+            omni.WaitForExit();
+        }
+        
+        [IterationSetup]
+        public void ClearMemory()
+        {
+            var omni = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "/opt/omnisci/bin/omnisql",
+                    Arguments = "-p HyperInteractive",
+                    RedirectStandardInput = true,
+                }
+            };
+
+            omni.Start();
+            omni.StandardInput.WriteLine("\\clear_gpu");
+            omni.StandardInput.WriteLine("\\clear_cpu");
             omni.StandardInput.Close();
             omni.WaitForExit();
         }

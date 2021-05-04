@@ -24,6 +24,7 @@ namespace GPU_DB_Benchmark
                         goto default;
                     
                     Generate(factor * 2000);
+                    Console.WriteLine("Done!");
                     break;
                 case "benchmark":
                     Benchmark();

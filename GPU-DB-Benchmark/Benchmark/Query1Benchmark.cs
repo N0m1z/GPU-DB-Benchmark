@@ -6,21 +6,24 @@ namespace GPU_DB_Benchmark.Benchmark
     public class Query1Benchmark
     {
         private readonly OmniSci _omniSci = new();
-        private readonly string _queryString1;
+        private readonly string _queryString;
         private readonly Blazing _blazing = new();
+
+        [Params("1","2","3","4","5")]
+        public string queryNumber;
         
         public Query1Benchmark()
         {
-            _queryString1 = _omniSci.ReadQueryString("1");
+            _queryString = _omniSci.ReadQueryString(queryNumber);
         }
 
         [IterationSetup]
         public void ClearMemory() => _omniSci.ClearMemory();
         
         [Benchmark(Baseline = true)]
-        public void OmniSci1() => _omniSci.ExecuteQuery(_queryString1);
+        public void OmniSci() => _omniSci.ExecuteQuery(_queryString);
         
         [Benchmark]
-        public void Blazing1() => _blazing.ExecuteQuery("1");
+        public void Blazing() => _blazing.ExecuteQuery(queryNumber);
     }
 }

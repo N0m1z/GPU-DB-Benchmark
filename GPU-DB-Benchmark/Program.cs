@@ -44,10 +44,10 @@ namespace GPU_DB_Benchmark
         private static void Benchmark()
         {
             BenchmarkRunner.Run<Query1Benchmark>();
-            BenchmarkRunner.Run<Query2Benchmark>();
-            BenchmarkRunner.Run<Query3Benchmark>();
-            BenchmarkRunner.Run<Query4Benchmark>();
-            BenchmarkRunner.Run<Query5Benchmark>();
+            // BenchmarkRunner.Run<Query2Benchmark>();
+            // BenchmarkRunner.Run<Query3Benchmark>();
+            // BenchmarkRunner.Run<Query4Benchmark>();
+            // BenchmarkRunner.Run<Query5Benchmark>();
         }
     }
 }

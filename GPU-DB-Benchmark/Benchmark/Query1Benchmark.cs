@@ -2,7 +2,7 @@
 
 namespace GPU_DB_Benchmark.Benchmark
 {
-    [MarkdownExporter, HtmlExporter]
+    [MarkdownExporter, HtmlExporter, RPlotExporter]
     public class Query1Benchmark
     {
         private readonly OmniSci _omniSci = new();

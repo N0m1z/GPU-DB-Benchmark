@@ -30,3 +30,6 @@ In den Dateien ```Queries/BlazingSQL/Query<1-5>.sql``` müssen die Pfade auf die
 ```GPU-DB-Benchmark benchmark```
 
 Ergebnisse befinden sich im Ordner ```BenchmarkDotNet.Artifacts/results```.
+Ausgegeben werden diese als Markdown, HTML und CSV Dateien.
+Mit der ebenfalls erzeugten Datei ```BuildPlots.R``` können Diagramme generiert werden,
+sofern R installiert ist.

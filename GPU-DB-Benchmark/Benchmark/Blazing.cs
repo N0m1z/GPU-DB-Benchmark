@@ -29,7 +29,7 @@ namespace GPU_DB_Benchmark.Benchmark
                 {
                     sw.WriteLine("cd Queries/BlazingSQL");
                     sw.WriteLine($"source /home/nomis/miniconda3/bin/activate");
-                    sw.WriteLine($"/home/nomis/miniconda3/bin/python {workingDirectory}/Queries/BlazingSQL/Query{queryString}.py");
+                    sw.WriteLine($"/home/{Environment.UserName}/miniconda3/bin/python {workingDirectory}/Queries/BlazingSQL/Query{queryString}.py");
                 }
             }
             

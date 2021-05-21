@@ -21,8 +21,11 @@ namespace GPU_DB_Benchmark
                 case "generate" when args.Length == 2:
                     var suc = int.TryParse(args[1], out var factor);
                     if (!suc)
+                    {
+                        Console.WriteLine("Only integers can be accepted as scaling factors");
                         goto default;
-                    
+                    }
+
                     Generate(factor * 2000);
                     Console.WriteLine("Done!");
                     break;

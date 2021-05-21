@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using BenchmarkDotNet.Attributes;
 
 namespace GPU_DB_Benchmark.Benchmark
@@ -13,7 +14,7 @@ namespace GPU_DB_Benchmark.Benchmark
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = "cat",
-                    Arguments = $"/home/nomis/GPU-DB-Benchmark/GPU-DB-Benchmark/Queries/OmniSci/Query{queryNumber}.sql",
+                    Arguments = $"{Directory.GetCurrentDirectory()}/Queries/OmniSci/Query{queryNumber}.sql",
                     RedirectStandardOutput = true
                 }
             };

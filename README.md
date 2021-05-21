@@ -1,6 +1,4 @@
 # GPU-DB-Benchmark
-Benchmark for GPU-accelerated Databases
-
 ## Kompilieren
 Zur Kompilierung wird .NET 5 benötigt.
 Das Projekt muss im "Release"-Modus gebaut werden.

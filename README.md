@@ -10,7 +10,7 @@ Das Projekt muss im "Release"-Modus gebaut werden.
 ```<factor>``` stellt hierbei die Größe der zu generierenden Daten in GB dar. Es sind nur ganzzahlige Faktoren möglich.
 
 ### Tabellen in OmniSci anlegen
-Zur schneller Erstellung der Tabellen kann das mitgelieferte Skript ```omnisci_tablecreate.sql``` genutzt werden.
+Zur schnelleren Erstellung der Tabellen kann das mitgelieferte Skript ```omnisci_tablecreate.sql``` genutzt werden.
 Die generierten ```.csv``` Dateien müssen dann in den import Ordner von OmniSci kopiert werden (siehe OmniSci Dokumentation)
 und mittels
 

@@ -7,7 +7,7 @@ Das Projekt muss im "Release"-Modus gebaut werden.
 ### Daten generieren
 ```GPU-DB-Benchmark generate <factor>```
 
-```<factor>``` stellt hierbei die Größe der zu generierenden Daten in GB dar.
+```<factor>``` stellt hierbei die Größe der zu generierenden Daten in GB dar. Es sind nur ganzzahlige Faktoren möglich.
 
 ### Tabellen in OmniSci anlegen
 Zur schneller Erstellung der Tabellen kann das mitgelieferte Skript ```omnisci_tablecreate.sql``` genutzt werden.
